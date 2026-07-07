@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI株ピック公開実験｜全戦績</title>
+<meta name="description" content="AIが毎日1銘柄選び、日足終値でコードが機械判定する公開実験の全記録。負けも全部公開。">
+<style>
+:root {
+  --bg:#0d1320; --panel:#141c2b; --panel2:#182238; --line:#243244;
+  --fg:#e7ecf0; --sub:#8fa0b0; --green:#2ecc71; --red:#e8556d; --blue:#4da3ff;
+}
+* { box-sizing:border-box; margin:0; padding:0; }
+body { color:var(--fg); font-family:"Meiryo","Hiragino Sans",system-ui,sans-serif; line-height:1.7;
+  background:var(--bg);
+  background-image:radial-gradient(1100px 500px at 15% -10%, #1a2740 0%, transparent 60%),
+                   radial-gradient(900px 500px at 110% 20%, #14213a 0%, transparent 55%);
+  background-attachment:fixed; }
+.wrap { max-width:1000px; margin:0 auto; padding:28px 16px 64px; }
+.topbar { display:flex; justify-content:space-between; align-items:baseline; margin-bottom:14px; flex-wrap:wrap; gap:6px; }
+.brand { font-weight:bold; letter-spacing:.06em; color:var(--sub); font-size:.85rem; }
+.updated { color:var(--sub); font-size:.78rem; }
+.hero img { width:100%; display:block; border-radius:14px; border:1px solid var(--line);
+  box-shadow:0 12px 40px rgba(0,0,0,.45); }
+section { margin-top:38px; }
+h2 { font-size:1.15rem; border-left:4px solid var(--green); padding-left:10px; margin-bottom:16px; }
+.cards { display:grid; grid-template-columns:repeat(auto-fit,minmax(140px,1fr)); gap:12px; }
+.card { background:linear-gradient(180deg,var(--panel2),var(--panel)); border:1px solid var(--line);
+  border-radius:12px; padding:16px 18px; }
+.card .num { font-size:1.9rem; font-weight:bold; line-height:1.2; }
+.card .lbl { color:var(--sub); font-size:.8rem; margin-top:2px; }
+.card.win .num { color:var(--green); } .card.lose .num { color:var(--red); }
+.card.open .num { color:var(--blue); }
+.cards.big { grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); margin-top:12px; }
+.cards.big .num { font-size:2.4rem; }
+.panel { background:var(--panel); border:1px solid var(--line); border-radius:12px; padding:18px; }
+table { width:100%; border-collapse:collapse; font-size:.9rem; }
+th,td { padding:9px 10px; border-bottom:1px solid var(--line); text-align:right; white-space:nowrap; vertical-align:middle; }
+tr:last-child td { border-bottom:none; }
+th { color:var(--sub); font-weight:normal; font-size:.78rem; }
+th:first-child,td:first-child,th:nth-child(2),td:nth-child(2) { text-align:left; }
+.tbl-scroll { overflow-x:auto; background:var(--panel); border:1px solid var(--line); border-radius:12px; }
+.badge { display:inline-block; padding:1px 11px; border-radius:999px; font-size:.8rem; }
+.badge.win { background:rgba(46,204,113,.15); color:var(--green); }
+.badge.lose { background:rgba(232,85,109,.15); color:var(--red); }
+.badge.open { background:rgba(77,163,255,.15); color:var(--blue); }
+.badge.watch { background:rgba(143,160,176,.15); color:var(--sub); }
+.pos { color:var(--green); } .neg { color:var(--red); }
+.rules li { margin-left:1.4em; margin-bottom:6px; }
+.notes li { margin-left:1.4em; color:var(--sub); font-size:.9rem; }
+.empty { border:1px dashed var(--line); border-radius:12px; padding:30px; text-align:center; color:var(--sub); }
+.hint { color:var(--sub); font-size:.8rem; margin-top:8px; }
+.tabs { display:flex; gap:8px; margin-bottom:12px; flex-wrap:wrap; }
+.tabs button { background:var(--panel); color:var(--sub); border:1px solid var(--line);
+  border-radius:999px; padding:5px 16px; font-size:.85rem; cursor:pointer; font-family:inherit; }
+.tabs button.active { background:rgba(46,204,113,.12); color:var(--green); border-color:var(--green); }
+#morebtn { display:block; margin:14px auto 0; background:var(--panel); color:var(--fg);
+  border:1px solid var(--line); border-radius:8px; padding:8px 26px; cursor:pointer; font-family:inherit; }
+#morebtn:hover { border-color:var(--green); }
+footer { margin-top:52px; color:var(--sub); font-size:.8rem; border-top:1px solid var(--line); padding-top:16px; }
+a { color:var(--blue); }
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="topbar">
+  <div class="brand">AI STOCK PICK — PUBLIC EXPERIMENT</div>
+  <div class="updated">最終更新: 2026-07-05｜picks.csvから自動生成・手作業による編集なし</div>
+</div>
+<div class="hero"><img src="hero.png" alt="AI株ピック公開実験"></div>
+
+<section>
+  <h2>累計成績</h2>
+  <div class="empty">実験開始前です。最初のピックは2026年7月6日（月）に公開されます。</div>
+</section>
+
+
+
+
+
+
+
+
+
+<section>
+  <h2>全ピック一覧</h2>
+  
+  <div class="empty">まだ記録はありません。</div>
+  
+</section>
+
+
+
+<section>
+  <h2>この実験のルール</h2>
+  <div class="panel"><ul class="rules">
+    <li>AIが平日毎日、日本株・米国株から1銘柄ずつ選ぶ（人間の裁量ゼロ）</li>
+    <li>エントリー・利確・損切は投稿時に単一価格で事前宣言する</li>
+    <li>判定は日足終値ベース：終値がエントリー価格以下（かつ損切価格より上）で建玉、建玉後は終値が利確価格以上で利確、損切価格以下で損切</li>
+    <li>宣言から10営業日以内にエントリー価格へ終値が届かなければ「不成立」とし、監視を終了する（勝敗にはカウントしない）</li>
+    <li>場中に価格ラインへ到達したが終値では未成立だった日は、注記としてすべて開示する</li>
+    <li>結果がどうであれ、事後の削除・修正はしない。このページは記録簿から機械的に生成される</li>
+  </ul></div>
+</section>
+
+<footer>
+  <p>本サイトおよび関連するX投稿は投資助言ではありません。掲載する価格・判定は検証実験の記録であり、売買の推奨を目的としません。投資判断はご自身の責任でお願いします。</p>
+  <p>実験の日々の様子は <a href="https://x.com/Yuta1913502">X（@Yuta1913502）</a> で公開中。</p>
+</footer>
+</div>
+<script>
+(function(){
+  var market='ALL', showAll=false;
+  var rows=[].slice.call(document.querySelectorAll('#picks tbody tr'));
+  var btns=[].slice.call(document.querySelectorAll('.tabs button'));
+  var more=document.getElementById('morebtn');
+  var LIMIT=20;
+  function apply(){
+    var shown=0, hiddenCount=0;
+    rows.forEach(function(r){
+      var ok=(market==='ALL'||r.getAttribute('data-market')===market);
+      var vis=ok&&(showAll||shown<LIMIT);
+      if(ok){shown++; if(!vis)hiddenCount++;}
+      r.style.display=vis?'':'none';
+    });
+    if(more){
+      more.style.display=(!showAll&&hiddenCount>0)?'':'none';
+      more.textContent='すべて表示（あと'+hiddenCount+'件）';
+    }
+    btns.forEach(function(b){b.className=(b.getAttribute('data-m')===market)?'active':'';});
+  }
+  btns.forEach(function(b){b.addEventListener('click',function(){market=b.getAttribute('data-m');apply();});});
+  if(more){more.addEventListener('click',function(){showAll=true;apply();});}
+  apply();
+})();
+</script>
+</body>
+</html>
